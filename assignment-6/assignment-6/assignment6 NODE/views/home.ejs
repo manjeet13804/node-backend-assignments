@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>Blog</header>
+    <form action="/blog" method="POST">
+        <div>
+            <label for="">
+                Topic         :
+            </label>
+            <input type="text" name="topic" value="">
+        </div>
+        <div>
+            <label for="">
+                Description   :
+            </label>
+            <input type="text" name="description" value="">
+        </div>
+        <div>
+            <label for="">
+                Posted_at      :
+            </label>
+            <input type="text" name="posted_at" value="">
+        </div>
+        <div>
+            <label for="">
+                Posted_by      :
+            </label>
+            <input type="text" name="posted_by" value="">
+        </div>
+        <button>Submit</button>
+    </form>
+    <div class="container">
+        <% blogdata.forEach(name =>{%>
+            <%if(name.status){%>
+                <p class="com">
+                    <%=name.tname %>
+                </p>
+                <p class="com">
+                    <%=name.description %>
+                </p>
+                <p class="com">
+                    <%=name.posted_at %>
+                </p>
+                <p class="com">
+                    <%=name.posted_by %>
+                </p>
+    
+           <% }else {%>
+            <p>
+              Topic > <%=name.tname %>
+            </p>
+            <p>
+             description >   <%=name.description %>
+            </p>
+            <p>
+             posted at >  <%=name.posted_at %>
+            </p>
+            <p>
+             posted by >  <%=name.posted_by %>
+            </p>
+            <form action="/blog/<%=name._id%>/complete?_method=PUT" method="POST">
+                <button>Complete</button>   
+            </form>
+            <form action="/blog/<%=name._id%>/delete?_method=DELETE" method="POST">
+                <button>Delete</button>
+               </form>
+          <% }%> 
+       <%})%>
+    </div>
+    
+</body>
+
+</html>
