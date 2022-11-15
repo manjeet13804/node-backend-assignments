@@ -1,0 +1,15 @@
+header {
+    background-color: aqua;
+    color:blue;
+}
+
+a,p,form {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.com {
+    color: blue;
+}
